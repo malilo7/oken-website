@@ -35,53 +35,132 @@
 	<!-- Main Custom Css -->
 	<link href="css/custom.css" rel="stylesheet" media="screen">
 
-   <!-- OKEN ENGINEERING COLOR & HEADER OVERRIDES -->
+   <!-- OKEN ENGINEERING CUSTOM STYLES -->
     <style>
         :root {
             --primary-color: #000000; 
             --secondary-color: #F9A825; 
             --accent-color: #00BCD4; 
+            --bg-light: #f4f7f6;
         }
         
-        /* 1. FORCE LOGO VISIBILITY - Overrides template display:none */
-        .main-header .navbar-brand { 
-            display: flex !important; /* Forces it to show */
-            align-items: center;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
+        /* 1. HEADER & LOGO FIXES */
+        .main-header .navbar-brand { display: flex !important; align-items: center; visibility: visible !important; opacity: 1 !important; }
+        .main-header .navbar-brand img { display: block !important; max-height: 55px !important; width: auto !important; }
+        .navbar { padding: 8px 0 !important; background-color: var(--primary-color) !important; }
+        .main-header .container { display: flex !important; justify-content: space-between !important; align-items: center !important; }
+        .main-menu .nav-menu-wrapper { display: flex; justify-content: flex-end; width: 100%; }
 
-        /* 2. LOGO IMAGE SIZING */
-        .main-header .navbar-brand img { 
-            display: block !important;
-            max-height: 55px !important; /* Adjust this to change logo height */
-            width: auto !important;
-            visibility: visible !important;
-            opacity: 1 !important;
+        /* 2. PREMIUM SERVICE CARD STYLING (NEW) */
+        .service-section-container { 
+            padding: 80px 0; 
+            background-color: var(--bg-light); 
         }
-
-        /* 3. COMPACT HEADER HEIGHT */
-        .navbar { 
-            padding: 8px 0 !important; 
-            background-color: var(--primary-color) !important; 
+        
+        .service-pro-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.03);
         }
-
-        /* 4. ALIGN LOGO LEFT AND MENU RIGHT */
-        .main-header .container {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
+        
+        /* Hover Effect: Lift up */
+        .service-pro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--secondary-color);
         }
-
-        .main-menu .nav-menu-wrapper { 
-            display: flex;
-            justify-content: flex-end;
+        
+        /* Image Side Styling */
+        .service-image-side {
+            background-color: #ddd;
+            height: 100%;
+            min-height: 380px; /* Ensures height on desktop */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-image-side img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-pro-card:hover .service-image-side img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+        
+        /* Content Side Styling */
+        .service-content-side { 
+            padding: 40px 50px; 
+        }
+        
+        .service-label {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(249, 168, 37, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .service-content-side h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-content-side p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        /* Bullet List Styling */
+        .service-bullets {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .service-bullets li {
+            font-weight: 600;
+            font-size: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-bullets li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive Tweaks */
+        @media (max-width: 991px) {
+            .service-image-side { min-height: 250px; }
+            .service-content-side { padding: 30px 20px; }
+            .service-bullets { grid-template-columns: 1fr; } /* Single column on mobile */
         }
 
         /* General preservation */
         .text-anime-style-2 span { color: var(--secondary-color) !important; }
         .btn-default { background-color: var(--secondary-color) !important; border-color: var(--secondary-color) !important; color: #fff !important; }
+        .btn-default:hover { background-color: #333 !important; border-color: #333 !important; }
     </style>
 </head>
 <body>
@@ -141,180 +220,194 @@
 	</div>
 	<!-- Page Header End -->
 
-    <!-- Page Services Start -->
-    <div class="page-services">
+    <!-- Page Services Start (NEW PROFESSIONAL LAYOUT) -->
+    <section class="service-section-container">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-1.svg" alt="">
-                        </div>
 
-                        <div class="service-body">
-                            <h3>Building Construction</h3>
-                            <p>Residential, Commercial & Institutional Facilities</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
+            <!-- SERVICE 1: Building Construction -->
+            <div class="service-pro-card wow fadeInUp">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                            <!-- Make sure to add images/service-1.jpg -->
+                            <img src="images/service-1.webp" alt="Building Construction" onerror="this.src='https://placehold.co/600x400?text=Building+Construction'">
                         </div>
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-2.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>Civil Engineering Works</h3>
-                            <p>Roads, Pavements & Concrete Structures</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Core Expertise</span>
+                            <h2>Building Construction</h2>
+                            <p>We execute turnkey construction projects for residential, commercial, and industrial facilities. Our team ensures rigorous adherence to structural drawings, CRB engineering standards, and premium finishing. From high-rise towers to modern institutions, we guarantee safety, durability, and compliance.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> Commercial & Residential</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Industrial Facilities</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Concrete Framing</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Premium Finishing</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Request Quote</span></a>
                         </div>
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-3.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>Architectural Design</h3>
-                            <p>Creative & Functional Design Consultancy</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-4.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>Structural Consultancy</h3>
-                            <p>Bill of Quantities (BOQ) & Supervision</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-5.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>Renovation Works</h3>
-                            <p>Refurbishment of Existing Facilities</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-6.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>Drainage Systems</h3>
-                            <p>Storm Water & Sewage Management</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-7.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>General Supply</h3>
-                            <p>Construction Materials & Hardware</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item">
-                        <div class="icon-box">
-                            <img src="images/icon-service-8.svg" alt="">
-                        </div>
-
-                        <div class="service-body">
-                            <h3>ICT Equipment</h3>
-                            <p>Electronics & Office Supply Solutions</p>
-                        </div>
-
-                        <div class="service-footer">
-                            <a href="contact.html" class="service-btn">
-                                <img src="images/arrow-dark.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
                 </div>
             </div>
+
+            <!-- SERVICE 2: Civil Engineering -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-2.jpg -->
+                            <img src="images/bridge.webp" alt="Civil Engineering" onerror="this.src='https://placehold.co/600x400?text=Civil+Works'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Infrastructure</span>
+                            <h2>Civil Engineering Works</h2>
+                            <p>We specialize in heavy infrastructure development designed to withstand environmental stress and heavy loads. Our capabilities include the construction of tarmac and gravel roads, bridge works, culverts, and reinforced concrete structures that form the backbone of national development.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> Road Construction</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Bridges & Culverts</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Earthworks & Excavation</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Pavements & Walkways</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Learn More</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 3: Architectural Design -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.2s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-3.jpg -->
+                            <img src="images/service-3.jpg" alt="Architectural Design" onerror="this.src='https://placehold.co/600x400?text=Architecture'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Consultancy</span>
+                            <h2>Architectural Design</h2>
+                            <p>Our design team produces comprehensive 2D and 3D architectural blueprints. We blend aesthetic innovation with functional space optimization, ensuring all designs are practical, cost-effective, and fully meet municipal planning and permit requirements.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> 3D Modeling & Rendering</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Floor Plans & Elevations</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Municipal Permits</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Interior Design</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Start Design</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 4: Structural Consultancy -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.3s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-4.jpg -->
+                            <img src="images/service-4.webp" alt="Structural Consultancy" onerror="this.src='https://placehold.co/600x400?text=Consultancy+BOQ'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Project Management</span>
+                            <h2>Structural Consultancy</h2>
+                            <p>We provide expert project management and quantity surveying. This includes precise Bill of Quantities (BOQ) preparation, cost estimation, and structural integrity analysis. We supervise sites to ensure projects stay within budget and strictly adhere to engineering specifications.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> BOQ Preparation</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Project Supervision</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Cost Estimation</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Structural Analysis</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Consult Us</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 5: Renovation Works -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.4s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-5.jpg -->
+                            <img src="images/renovation.jpg" alt="Renovation Works" onerror="this.src='https://placehold.co/600x400?text=Renovations'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Refurbishment</span>
+                            <h2>Renovation Works</h2>
+                            <p>We specialize in the adaptive reuse and rehabilitation of existing structures. From structural retrofitting to modern interior remodeling, we restore value to aging properties while extending their operational lifespan through quality refurbishment and maintenance.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> Structural Retrofitting</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Interior Remodeling</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Building Extensions</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Facility Maintenance</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Restore Value</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 6: Drainage Systems -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.5s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-6.jpg -->
+                            <img src="images/drainage-2.jpg" alt="Drainage Systems" onerror="this.src='https://placehold.co/600x400?text=Drainage+Systems'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Water Management</span>
+                            <h2>Drainage Systems</h2>
+                            <p>Our engineers design and install efficient hydraulic systems for water management. We handle complex stormwater drainage channels, sewage treatment systems, and industrial plumbing to prevent flooding, erosion, and ensure environmental sanitation compliance.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> Stormwater Channels</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Sewage Systems</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Industrial Plumbing</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Flood Control</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Contact Engineers</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 7: General Supply -->
+            <div class="service-pro-card wow fadeInUp" data-wow-delay="0.6s">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="service-image-side">
+                             <!-- Make sure to add images/service-7.jpg -->
+                            <img src="images/supply-1.webp" alt="General Supply" onerror="this.src='https://placehold.co/600x400?text=General+Supply'">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="service-content-side">
+                            <span class="service-label">Procurement</span>
+                            <h2>General Supply</h2>
+                            <p>We act as a reliable supply chain partner for certified construction materials, hardware, and site safety gear (PPE). We ensure the timely procurement and delivery of high-quality supplies to keep your project schedule on track and your workforce safe.</p>
+                            <ul class="service-bullets">
+                                <li><i class="fa-solid fa-check-circle"></i> Building Materials</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Safety Gear (PPE)</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Construction Tools</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Site Hardware</li>
+                            </ul>
+                            <a href="contact.html" class="btn-default"><span>Order Supplies</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
     <!-- Page Services End -->
 
      <!-- What We Do Start -->

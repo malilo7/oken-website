@@ -79,6 +79,79 @@
             width: 100%;
         }
 
+        /* TEAM SECTION STYLING */
+        .our-team {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        .team-row {
+            justify-content: center; /* Centers the 3 members on desktop */
+        }
+        .team-member-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease-in-out;
+            border: 1px solid #eee;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .team-member-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary-color);
+        }
+        .team-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .team-image img {
+            width: 100%;
+            height: 380px; /* Fixed height for all images */
+            object-fit: cover; /* Prevents stretching */
+            transition: 0.5s;
+        }
+        .team-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .team-content p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .team-social-icon ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .team-social-icon ul li a {
+            width: 35px;
+            height: 35px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--primary-color);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .team-social-icon ul li a:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
         /* General preservation */
         .text-anime-style-2 span { color: var(--secondary-color) !important; }
         .btn-default { background-color: var(--secondary-color) !important; border-color: var(--secondary-color) !important; color: #fff !important; }
@@ -482,7 +555,7 @@
                                     <!-- Our History Image Start -->
                                     <div class="our-history-image">
                                         <figure  class="image-anime">
-                                            <img src="images/Profile.webp" alt="">
+                                            <img src="images/history.webp" alt="">
                                         </figure>
                                     </div>
                                     <!-- Our History Image End -->
@@ -608,6 +681,113 @@
         </div>
     </div>
     <!-- Our History Section End -->
+
+
+
+    
+    <!-- Our Team Section Start -->
+    <div class="our-team">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-12 text-center">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Our Leadership Team</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Experts in <span>Engineering Innovation</span></h2>
+                        <p>Guided by technical excellence and a commitment to quality infrastructure.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row team-row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Team Member Item Start -->
+                    <div class="team-member-item wow fadeInUp">
+                        <!-- Team Image Start -->
+                        <div class="team-image">
+                            <figure class="image-anime">
+                                <img src="images/Profile.webp" alt="Erick Christopher">
+                            </figure>
+                        </div>
+                
+                        <!-- Team Content Start -->
+                        <div class="team-content">
+                            <h3>Erick Christopher</h3>
+                            <p>Managing Director</p>
+                            <div class="team-social-icon">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team Content End -->
+                    </div>
+                    <!-- Team Member Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Team Member Item Start -->
+                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.25s">
+                        <!-- Team Image Start -->
+                        <div class="team-image">
+                            <figure class="image-anime">
+                                <img src="images/team-2.jpeg" alt="Assenga">
+                            </figure>
+                        </div>
+                
+                        <!-- Team Content Start -->
+                        <div class="team-content">
+                            <h3>Assenga</h3>
+                            <p>Business Development Manager</p>
+                            <div class="team-social-icon">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team Content End -->
+                    </div>
+                    <!-- Team Member Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Team Member Item Start -->
+                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Team Image Start -->
+                        <div class="team-image">
+                            <figure class="image-anime">
+                                <img src="images/team-3.jpg" alt="Abel Wilbert Waryato">
+                            </figure>
+                        </div>
+                
+                        <!-- Team Content Start -->
+                        <div class="team-content">
+                            <h3>Abel Wilbert Waryato </h3>
+                            <p>Sales Manager</p>
+                            <div class="team-social-icon">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team Content End -->
+                    </div>
+                    <!-- Team Member Item End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Team Section End -->
 
     <!-- What We Do Start -->
     <div class="what-we-do">
